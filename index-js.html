@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="javascript.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+</head>
+
+<style>
+#console-log{ 
+    margin: 2px;
+    padding-top: 50px;
+	font:Verdana, Geneva, sans-serif;
+	font-size:52px;
+	text-align:center;
+	color:orange;
+	text-transform: uppercase;	}
+</style>
+
+
+<body>
+<div id="console-log">
+Here is your result
+
+</div>
+</body>
+
+<script type="text/javascript">
+	
+
+
+/**************************************
+ * Simple "Rock, Paper, Scissors" Game *
+ ***************************************/
+
+var consoleLine = "<p class=\"console-line\"></p>";
+
+// Note: This doesn't handle arrays very well (PTD)
+
+console = {
+    log: function (text) {
+        $("#console-log").append($(consoleLine).html(text));
+        
+    }
+};
+</script>
+
+</html>

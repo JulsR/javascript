@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="java.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+</head>
+
+<style>
+#console-log{ 
+    margin: 2px;
+	font:Verdana, Geneva, sans-serif;
+	font-size:42px;
+	text-align:center;
+	color:#933;}
+</style>
+
+
+<body>
+<div id="console-log">
+Here is your result.
+</div>
+</body>
+
+
+<script type="text/javascript">
+	
+
+
+/**************************************
+ * Simple "Rock, Paper, Scissors" Game *
+ ***************************************/
+
+var consoleLine = "<p class=\"console-line\"></p>";
+
+// Note: This doesn't handle arrays very well (PTD)
+
+console = {
+    log: function (text) {
+        $("#console-log").append($(consoleLine).html(text));
+    }
+};
+
+// Get the human player's choice
+
+var userChoice = prompt("Do you choose rock, paper or scissors?");
+
+// Generate computer's choice
+
+var computerChoice = Math.random();
+
+if (computerChoice < 0.33) {
+    computerChoice = "rock";
+} else if (computerChoice > 0.66) {
+    computerChoice = "paper";
+} else {
+    computerChoice = "scissors";
+}
+
+console.log("Computer: " + computerChoice);
+
+// Helper function to see if the both choices match two particular values (i.e.
+// one of the choices is one value and the other choice is the other value. This
+// helps simplify and make the winning logic easier to read.
+
+var areThey = function (value1, value2, choice1, choice2) {
+    if (value1 === choice1 && value2 === choice2) {
+        return (true);
+    } else if (value1 === choice2 && value2 === choice1) {
+        return (true);
+    }
+    return (false);
+}
+
+// Determine which of the choices made is the winner or if there is a tie
+
+var compare = function (choice1, choice2) {
+    if (areThey("paper", "rock", choice1, choice2)) {
+       return  ("paper wins");
+    } else if (areThey("paper", "scissors", choice1, choice2)) {
+        return ("scissors wins");
+    } else if (areThey("scissors", "rock", choice1, choice2)) {
+        return ("rock wins");
+    }
+    return ("it's a tie!");
+}
+
+// Show the results
+
+console.log(compare(userChoice, computerChoice));
+</script>
+
+</html>
